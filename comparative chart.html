@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+
+    <title>Graph for Sorting Algorithms</title>
+    
+    <style>
+        
+        h1 {
+            text-align: center;
+            color: darkmagenta;
+            margin: 20px;
+            text-decoration: underline;
+        }
+        
+        h2 {
+            margin-left: 20px;
+            color: blue;
+            text-decoration: underline;
+        }
+        
+        #back {
+            font-size: 30px;
+            float: right;
+            margin: 80px 30px;
+        }
+    
+    </style>
+    
+</head>
+
+<body>
+
+    
+    
+    <div class="container">
+        <h1>Comparative Graph</h1>
+        <canvas id="myChart" width="600" height="300"></canvas>
+        <a id="back" href="index.html">Back</a>
+        <div id="group">
+            <h2>Group Members:</h2>
+            <ol>
+                <li>Abhishek Singh, 18103007</li>
+                <li>Aditya Gedam, 18103009</li>
+                <li>Aditya Khandelwal, 18103010</li>
+                <li>Aman Kumar Rahi, 18103015</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <script>
+        var ctx = document.getElementById("myChart");
+
+        Chart.defaults.global.defaultFontFamily = "Lato";
+        Chart.defaults.global.defaultFontSize = 18;
+        
+        //labels along x axis
+        var arraySize = [1, 2, 5, 10, 50, 100, 200, 500, 1000, 5000, 10000];
+
+        //data for drawing lines
+        var selection = [0.000001, 0.000001, 0.000001, 0.000002, 0.000004, 0.00001, 0.000034, 0.000168, 0.000577, 0.01423, 0.049003];
+        var bubble = [0.000001, 0.000001, 0.000002, 0.000002, 0.000004, 0.000014, 0.000046, 0.000272, 0.000982, 0.031682, 0.157715];
+        var insertion = [0.000001, 0.000001, 0.000001, 0.000001, 0.000002, 0.000004, 0.000011, 0.000052, 0.000188, 0.006479, 0.019396];
+        var merge = [0.000001, 0.000001, 0.000001, 0.000001, 0.000004, 0.000006, 0.000013, 0.000036, 0.000079, 0.000504, 0.000992];
+        var quick = [0.000001, 0.000001, 0.000001, 0.000001, 0.000004, 0.000005, 0.000011, 0.000029, 0.000062, 0.00039, 0.000843];
+        var heap = [0.000001, 0.000001, 0.000001, 0.000001, 0.000003, 0.000007, 0.000014, 0.000034, 0.000073, 0.00045, 0.001057];
+        var counting = [0.000001, 0.000001, 0.000002, 0.000002, 0.000005, 0.000011, 0.000023, 0.000062, 0.000127, 0.000539, 0.001045];
+        var radix = [0.000001, 0.000001, 0.000001, 0.000002, 0.000006, 0.000012, 0.000022, 0.000054, 0.00012, 0.000557, 0.001136];
+        var bucket = [0.000001, 0.000001, 0.000002, 0.000002, 0.000004, 0.000008, 0.000014, 0.00004, 0.000094, 0.000496, 0.000942];
+
+        var algoGraph = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: arraySize,
+                datasets: [{
+                        data: selection,
+                        label: "Selection Sort",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    },
+                    {
+                        data: bubble,
+                        label: "Bubble Sort",
+                        borderColor: "#1de42d",
+                        fill: false
+                    },
+                    {
+                        data: insertion,
+                        label: "Insertion Sort",
+                        borderColor: "#FF8F35",
+                        fill: false
+                    },
+                    {
+                        data: merge,
+                        label: "Merge Sort",
+                        borderColor: "#Af245c",
+                        fill: false
+                    },
+                    {
+                        data: quick,
+                        label: "Quick Sort",
+                        borderColor: "##FFF82A",
+                        fill: false
+                    },
+                    {
+                        data: heap,
+                        label: "Heap Sort",
+                        borderColor: "#870000",
+                        fill: false
+                    },
+                    {
+                        data: counting,
+                        label: "Counting Sort",
+                        borderColor: "#00B01D",
+                        fill: false
+                    },
+                    {
+                        data: radix,
+                        label: "Radix Sort",
+                        borderColor: "#0C00CA",
+                        fill: false
+                    },
+                    {
+                        data: bucket,
+                        label: "Bucket Sort",
+                        borderColor: "#44005D",
+                        fill: false
+                    }
+                ]
+            }
+        });
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
