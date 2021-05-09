@@ -1,6 +1,8 @@
+#Sort Numbers your way
+
 Project Description:
 
-This is a web application build in HTML, CSS and Java.
+This is a web application build in HTML, CSS and Javascript.
 
 It takes input as numbers and outputs them in a sorted fashion.
 
